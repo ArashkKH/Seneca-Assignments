@@ -1,21 +1,150 @@
 // pseudocode for a robot to clean your dishes?
 
 
-start 
+START
 
 /* -------------------------------- functions ------------------------------- */
 
 
+function isThereDirtyDishes() {
+    if (There are Dirty Dishes in Kitchen) {
+        return(true)
+    }else{
+        return(false)
+    }
+}
+
+function backtoHome(taskStatus) {
+    set tasks.dishes to taskStatus
+    GoTo("Charging hub")
+
+    Set mode to "Standby"
+
+    while (tasks.dishes == "Pending") {
+
+        Set mode to "Standby"
+        
+        if (washing pending time == 0) {
+            Set mode to "Active"
+            dishWashingMachin()
+        }else{
+            backtoHome("Pending")
+        }
+
+    }
+    break
+}
+
+function dryDish() {
+    if(dish.status == "clean" && dish.status == "wet"){
+        dry dish with a piece of cloth
+    }
+    return(dish)
+}
+
+
+function loadDishWasher() {
+    GoTo(sink)
+    grab(1 , "Dish")
+    GoTo(dishWasher)
+    Place("Dish" in dishWasher)    
+}
 
 
 
+function unloadDishWasher(param) {
+    GoTo(dishWasher)
+    grab(1 , "Dish")
+    GoTo(cabinet)
+    if(cabinet is full){
+        GoTo(dishWasher)
+        Place("Dish" in dishWasher)
+        Print("error: not enough room to put clean dishes")
+        backtoHome("incomplete")
+    }else{
+        dryDish()
+        Place("Dish" in cabinet)    
+    }
+}
+
+
+function startDishWasher() {
+    if (dirtyDishesQty == 0 || dishWasher.emptySlotCount) {
+        close(dishWasher.door)
+        set dishWasher.controlPanel to start
+        backtoHome("Pending")
+    }
+}
+
+
+function dishWashingMachin() {
+    GoTo(dishWasher)
+    open(dishWasher.door)
+    
+    if (dishWasher is empty) {
+        loadDishWasher()
+        startDishWasher()
+    }else{
+        
+        // dishWasher is not empty
+        if (dishWasher.dishes.status != "Clean") {
+
+            while (dishWasher.inventoryCount != dishWasher.capacity) {
+                loadDishWasher()
+            }
+            startDishWasher()
+
+        }else{
+
+            while (dishWasher.inventoryCount != 0) {
+                unloadDishWasher()
+            }
+        }
+    }
+}
 
 
 /* -------------------------------- sequences ------------------------------- */
+// Robot enters standby mode
+Set mode to "Standby"
+
+WHILE true DO
+
+    IF command == "Wash the dishes" THEN
+
+    Print "Starting dishwashing sequence"
+                
+        GoTo("Kitchen")
+
+        if (isThereDirtyDishes() == true) {
+            // found dirty dishes
+            if (washingFacilities != null) {
+                
+                if(dishWasher != null){
+                    // wash the dishes by dish washer
+                    dishWashingMachin()
+                }else{
+                    // wash the dishes in sink
+                    dishWashingSink()
+                }
+            }else{
+                Print("error: no washing facility found")
+                backtoHome("incomplete")
+            }
+
+
+        }else{
+            //abondon task and go back to hub
+            backtoHome("Done")
+        }
 
 
 
+    ELSE
+        // Remain in standby mode
+        Print "Awaiting command"
+    ENDIF
+ENDWHILE
 
 
-
-end
+END
