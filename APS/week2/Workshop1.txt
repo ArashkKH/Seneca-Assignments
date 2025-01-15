@@ -1,0 +1,63 @@
+// BasketBall Game
+declare dieWinner
+declare numberOfTiedGames set to 0
+declare basketballGameCounter = 0
+
+declare FirstPlayer set to dieWinner
+declare FirstPlayerScore set to 0
+declare SecoundPlayer set to dieLooser
+declare SecoundPlayerScore set to 0
+declare repeatGame set to true
+declare BasketBallPlayer 
+
+5. is the basketballGameCounter an even number?
+    YES: set BasketBallPlayer to FirstPlayer
+         is the basketballGameCounter greater than 0 ?
+            YES: is the FirstPlayerScore equal to SecoundPlayerScore?
+                Yes: add 1 to numberOfTiedGames
+                    go to line 10
+
+                No: is the FirstPlayerScore greater than SecoundPlayerScore?
+                    YES: set basketBallWinner to FirstPlayer
+                    NO: set basketBallWinner to SecoundPlayer
+                    go to line
+
+    NO: set BasketBallPlayer to SecoundPlayer
+
+6. declare throwCounter set to 0
+declare score set to 0
+
+8. BasketBallPlayer throw Ball
+did the ball went through basket?
+    YES: add 1 to score
+
+add 1 throwCounter
+
+is throwCounter equal to 5 ? 
+    NO: go to line 8 (throw again)
+    YES:
+        add 1 to basketballGameCounter
+        
+        go to line 5
+
+        
+// Payment Calculations
+10. declare scoreDifference set to the positive value of FirstPlayerScore subtracted by SecoundPlayerScore
+declare basketBallLooser and set to the other player (all players but basketBallWinner)
+declare paymentValue and set to scoreDifference
+
+subtract 50 cents from paymentValue for evey game that has been tied (numberOfTiedGames)
+
+does paymentValue have a negative value or is equal to 0 ?
+    YES: set paymentValue to 1 Dollar
+    NO: does the paymentValue has a decimal value ? 
+        YES : RoundUp paymentValue to the nearest whole number
+
+loserP pay paymentValue to basketBallWinner
+    
+end
+
+
+
+
+

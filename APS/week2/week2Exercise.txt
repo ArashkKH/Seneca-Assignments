@@ -1,0 +1,13 @@
+
+variable [location , process , friendLocation]
+
+while (location == IPCLAB144 && process workshop Part 1) do
+    if (process.status == done) do
+        break
+    end
+
+    if (friendLocation == IPCLAB144) do
+        say "Hello!" to friend
+        break
+    end
+end
