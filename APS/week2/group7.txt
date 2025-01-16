@@ -1,0 +1,80 @@
+1. // group 7
+2. 
+3. VARIBALES
+4. ================
+5. declare dieWinner set to null initially.
+6. declare Player1Score and Player2Score (both set to 0).
+7. declare basketballGameCounter and set to 0
+8. declare numberOfTiedGames and set to 0
+9. declare BasketBallPlayer set to null initially.
+10. declare throwCounter set to 0
+11. declare basketScore set to 0
+12. declare firstPlayerShotsDone and set to 0
+13. declare secondPlayerShotsDone and set to 0
+14. declare player1totalshots and set to 0
+15. declare player2totalshots and set to 0
+16. declare winningPlayer and set to 0
+17. declare moneyWon and set to 0
+18. 
+19. 
+20. Roll the die for Player 1 and store the result in "Player1Score".
+21. Roll the die for Player 2 and store the result in "Player2Score".
+22. 
+23. is Player1Score equal to Player2Score (Player1Score == Player2Score)?
+24.     YES: go to line 20
+25.     NO: is Player1Score greater than Player2Score (Player1Score > Player2Score)?
+26.         YES: set dieWinner to player1
+27.         No:  set dieWinner to 
+28.         
+29. dieWinner has to set who to play first (firstBasketBallPlayer = player1 or Player2)
+30. dieWinner has to set who to play second (SecoundBasketBallPlayer = player1 or Player2)
+31. 
+32. is the basketballGameCounter an even number?
+33.     YES: set BasketBallPlayer to firstBasketBallPlayer
+34.          is the basketballGameCounter greater than 0 ?
+35.             YES: is the firstBasketBallPlayerScore equal to SecoundBasketBallPlayerScore?
+36.                 Yes: add 1 to numberOfTiedGames
+37.                      go to line 32
+38. 
+39.                 No: is the firstBasketBallPlayerScore greater than SecoundBasketBallPlayerScore?
+40.                     YES: set basketBallWinner to firstBasketBallPlayer
+41.                     NO: set basketBallWinner to SecoundBasketBallPlayer
+42.                     go to line 69
+43. 
+44.     NO: set BasketBallPlayer to SecoundBasketBallPlayer
+45.     set throwCounter to 0
+46. 
+47. BasketBallPlayer throw Ball
+48. did the ball went through basket?
+49.     YES: add 1 to score
+50. 
+51. add 1 throwCounter
+52. 
+53. is throwCounter greater than 5 ? 
+54.     NO: go to line 47 (throw again)
+55.     YES:
+56.         add 1 to basketballGameCounter 
+57.         go to line 32
+58. 
+59. // Compare player1shots with player2shots
+60. If player1shots > player2shots
+61.     Yes : player1 wins and winningPlayer = 1
+62.     No : Check if player2shots > player1shots
+63.          Yes : player2 wins and winningPlayer = 2
+64.          No : tie. Neither player wins. Add 1 to variable numberofties
+65. 
+66.       
+67.       
+68. // Now we will check if either a player won or a tie took place
+69. Check if winningPlayer = 0
+70.   No : set moneyWon to the absolute value of the difference between player1shots and player2shots 
+71.         If moneyWon is less than a dollar
+72.             Yes :  moneyWon = 1
+73.             No :   if moneyWon has decimals?
+74.                     Yes : Round up moneyWon to nearest whole number
+75. 
+76.         Check If winningPlayer = 2
+77.             Yes : player1 pays player2 the amount of moneyWon
+78.             No  : player2 pays player1 the amount of moneyWon
+79. 
+80. Display name of the winning player and moneyWon by that player

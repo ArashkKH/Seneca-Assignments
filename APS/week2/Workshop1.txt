@@ -3,22 +3,22 @@ declare dieWinner
 declare numberOfTiedGames set to 0
 declare basketballGameCounter = 0
 
-declare FirstPlayer set to dieWinner
-declare FirstPlayerScore set to 0
+declare firstBasketBallPlayer set to dieWinner
+declare firstBasketBallPlayerScore set to 0
 declare SecoundPlayer set to dieLooser
 declare SecoundPlayerScore set to 0
 declare repeatGame set to true
 declare BasketBallPlayer 
 
 5. is the basketballGameCounter an even number?
-    YES: set BasketBallPlayer to FirstPlayer
+    YES: set BasketBallPlayer to firstBasketBallPlayer
          is the basketballGameCounter greater than 0 ?
-            YES: is the FirstPlayerScore equal to SecoundPlayerScore?
+            YES: is the firstBasketBallPlayerScore equal to SecoundPlayerScore?
                 Yes: add 1 to numberOfTiedGames
                     go to line 10
 
-                No: is the FirstPlayerScore greater than SecoundPlayerScore?
-                    YES: set basketBallWinner to FirstPlayer
+                No: is the firstBasketBallPlayerScore greater than SecoundPlayerScore?
+                    YES: set basketBallWinner to firstBasketBallPlayer
                     NO: set basketBallWinner to SecoundPlayer
                     go to line
 
@@ -42,7 +42,7 @@ is throwCounter equal to 5 ?
 
         
 // Payment Calculations
-10. declare scoreDifference set to the positive value of FirstPlayerScore subtracted by SecoundPlayerScore
+10. declare scoreDifference set to the positive value of firstBasketBallPlayerScore subtracted by SecoundPlayerScore
 declare basketBallLooser and set to the other player (all players but basketBallWinner)
 declare paymentValue and set to scoreDifference
 
