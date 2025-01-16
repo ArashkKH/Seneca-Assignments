@@ -76,6 +76,22 @@ function startDishWasher() {
     }
 }
 
+function dishWashingSink() {
+    GoTo("sink")
+    open("faucet")
+    pickUp("Dirty Dish")
+    holdDishUnderWater()
+    scrub("dish" , 20 sec) //scrub dish for 20 seconds
+    if (dish is Clean) {
+       place dish in cabinet
+       if(any dirty dish left) {
+            dishWashingSink()
+       }
+    }else{
+        scrub again
+    }
+}
+
 
 function dishWashingMachin() {
     GoTo(dishWasher)
@@ -132,19 +148,14 @@ WHILE true DO
                 backtoHome("incomplete")
             }
 
-
+            backtoHome("Done")
         }else{
             //abondon task and go back to hub
             backtoHome("Done")
         }
-
-
-
     ELSE
         // Remain in standby mode
         Print "Awaiting command"
     ENDIF
 ENDWHILE
-
-
 END
