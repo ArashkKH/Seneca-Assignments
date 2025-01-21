@@ -1,3 +1,5 @@
+
+
 #include <stdio.h>
     
 float getNum(){
@@ -22,18 +24,4 @@ float multiply(){
 float divide(){
     display(getNum() / getNum());
     return 0;
-}
-
-
-
-
-void main(){
-
-    //testing function
-    printf("\ntesting multiply! \n\n ___________________________ \n");
-    multiply();
-    printf("\nmultiply is finished \n\n ___________________________ \n");
-    printf("\ntesting divide! \n\n ___________________________ \n");
-    divide();
-    printf("\nmultiply is finished \n\n ___________________________ \n");
 }
