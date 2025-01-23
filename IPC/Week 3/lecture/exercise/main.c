@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 #include "mathx.h"
 // the stdio.h is also a header file which includes functions prototypes
 
