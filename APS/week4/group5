@@ -1,0 +1,133 @@
+A 5 state Red light 
+-----------------------------
+
+1. declare startTime
+2. declare seconds 
+3. declare waitTime
+
+
+
+4. turn off all lights
+5. turn on green and advance green
+6. set waitTime = 20
+
+7. set start time: (startTime = NOW)
+
+// Green and Green timer
+// Check for Intruption
+8. is there an intruption? (intruptionFlag == true)
+    YES: 
+        Do the intruption commands
+        is the intruption over? (intruptionFlag == false)
+            YES: start over from green light (Repeat from 4 )
+            NO: Repeat from 8
+
+
+9. determin time passed: seconds  = NOW - startTime
+
+10. is seconds equal to waitTime?
+        NO: Repeat from 8
+
+
+    
+11. set waitTime = 5
+12. turn off advance green light
+13. turn on advance amber light
+
+14. set start time: (startTime = NOW)
+
+
+// Green and amber timer
+// Check for Intruption
+15. is there an intruption? (intruptionFlag == true)
+    YES: 
+        Do the intruption commands
+        is the intruption over? (intruptionFlag == false)
+            YES: start over from green light (Repeat from 4 )
+            NO: Repeat from 15
+
+
+16. determin time passed: seconds  = NOW - startTime
+
+17. is seconds equal to waitTime?
+        NO: Repeat from 15
+
+// Start Green
+18. set waitTime = 45
+19. turn off advance amber light
+
+20. set start time: (startTime = NOW)
+
+// Green timer
+// Check for Intruption
+21. is there an intruption? (intruptionFlag == true)
+        YES: 
+            Do the intruption commands
+            is the intruption over? (intruptionFlag == false)
+                YES: start over from green light (Repeat from 4 )
+                NO: Repeat from 21
+
+22. determin time passed: seconds  = NOW - startTime
+
+23. is seconds equal to waitTime?
+        NO: Repeat from 21
+
+
+
+
+// Start amber
+24. set waitTime = 15
+25. turn off green light
+26. turn on amber light
+
+27. set start time: (startTime = NOW)
+
+// amber timer
+// Check for Intruption
+28. is there an intruption? (intruptionFlag == true)
+        YES: 
+            Do the intruption commands
+            is the intruption over? (intruptionFlag == false)
+                YES: start over from green light (Repeat from 4 )
+                NO: Repeat from 28
+
+29. determin time passed: seconds  = NOW - startTime
+
+30. is seconds equal to waitTime?
+        NO: Repeat from 28
+
+
+
+    
+// Start red
+31. set waitTime = 90 (20 + 5 + 45 + 15 + extra 5)
+32. turn off amber light
+33. turn on red light
+
+34. set start time: (startTime = NOW)
+
+// red timer
+// Check for Intruption
+35. is there an intruption? (intruptionFlag == true)
+        YES: 
+            Do the intruption commands
+            is the intruption over? (intruptionFlag == false)
+                YES: start over from green light (Repeat from 4 )
+                NO: Repeat from 35
+
+36. has the sensor been triggered  ? (sensorTrigger == true)
+        YES: is the remaining Time greater than 15 ? (waitTime - seconds > 15)
+            YES: reduce remaining Time to 15 seconds (waitTime - seconds = 15)
+        
+37. NO: has the pedestrianWalkButton been pressed? (pedestrianWalkButton == true)
+        YES: is the remaining Time greater than 10 ? (waitTime - seconds > 10)
+            YES: reduce remaining Time by 10 seconds (waitTime - seconds = 10)
+        
+
+38. determin time passed: seconds  = NOW - startTime
+
+39. is seconds equal to waitTime?
+        NO: Repeat from 35
+
+// Go Green!!
+40. repeat the whole sequence over again from line 4 
