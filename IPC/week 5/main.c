@@ -4,15 +4,17 @@
 void main() {
 
     int studentNum;
-    printf("\nenter the number of students:");
-    do {
-        if ((studentNum < 0 && studentNum > 5)) {
-            printf("\nInvalid number of students, Try Again");
-        }
 
-        scanf("%d", & studentNum);
-        /* code */
-    } while (studentNum < 0 && studentNum > 5);
+    printf("\nenter the number of students:");
+
+    do {
+        scanf("%d", &studentNum);
+
+        if (studentNum < 0 || studentNum > 5) {
+            printf("\nInvalid number of students, Try Again:");
+        }
+    } while(studentNum < 0 || studentNum > 5);
+
 
 
 
@@ -26,27 +28,28 @@ void main() {
     {
         int studentMark = 1;
         printf("\nenter student number %d mark (%d remaining):" , i + 1 , studentNum - i);
-        do
-        {
+        
+        do{
             if (!(studentMark >= 0 && studentMark <= 100)) {
                 printf("invalid mark entered, Try Again!\n");
             }
 
             scanf("%d", &studentMark);
-        } while (studentMark >= 0 && studentMark <= 100);
+        } while (!(studentMark > 0 && studentMark <= 100));
+
 
         studentMark > maxMark ? maxMark = studentMark : (void)0;
         studentMark < minMark ? minMark = studentMark : (void)0;
         markSum += studentMark;
     }
 
-    printf("\nthe average mark of the %d student(s) entered is:%.2f\n\n" , studentNum , markSum / studentNum);
+    printf("\nthe average mark of the %d student(s) entered is:%.2f\n\n" , studentNum , (double)markSum / studentNum);
 
     printf("highest score was:%d\n" , maxMark);
     printf("lowest score was:%d\n" , minMark);
 
 
-    double average = markSum / studentNum;
+    double average = (double)markSum / studentNum;
     int minMultCounter = 0;
     
 
@@ -56,7 +59,7 @@ void main() {
         minMultCounter++;
     }
 
-    printf("\n %.2f / %.2f Quotient: %d Remainder: %.2f" , markSum / studentNum , minMark , );
+    printf("\n %.2f / %.d Quotient: %d Remainder: %.2f" , (double)markSum / studentNum , minMark, minMultCounter, average  );
     
 
 
