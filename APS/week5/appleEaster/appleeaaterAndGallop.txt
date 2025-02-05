@@ -1,0 +1,14 @@
+1. declare biteCount and set it to 0
+
+2. take a bite  ( add 1 to biteCount )
+
+3. is the apple finished? (IS biteCount greater or equal to 8)
+    NO: has horsey messaged you?
+        NO: eat again (repeat from step 2)
+        YES: Yell: "Time to Gallop"
+    // Yell: "Time to Gallop"
+Yell: "Im full!!"
+// wrong : what if they dont message
+// wrong : what if they text when you're done eating?
+// Context : it would be better to say im full first then time to go!
+

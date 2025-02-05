@@ -1,0 +1,8 @@
+1. declare biteCount and set it to 0
+
+2. take a bite  ( add 1 to biteCount )
+3. is biteCount greater or equal to 8?
+    NO: eat again (reaeat from step 2)
+
+    // YES: Yell: "Im full!!"
+4. Yell "I'm full!!"
