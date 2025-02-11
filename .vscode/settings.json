@@ -59,6 +59,7 @@
   "files.associations": {
     "*.ascx": "html",
     "stdio.h": "c",
-    "headers.h": "c"
+    "headers.h": "c",
+    "functions.h": "c"
   }
 }
