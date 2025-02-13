@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/Users/arash/Documents/GitHub/Seneca-Assignments/IPC/week 6/example",
-      "program": "d:/Users/arash/Documents/GitHub/Seneca-Assignments/IPC/week 6/example/build/Debug/outDebug",
+      "cwd": "d:/Users/arash/Documents/GitHub/Seneca-Assignments/IPC/week 7",
+      "program": "d:/Users/arash/Documents/GitHub/Seneca-Assignments/IPC/week 7/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
