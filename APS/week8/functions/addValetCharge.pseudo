@@ -1,0 +1,25 @@
+####################################
+ Sub-Processes ("open boxes")
+####################################
+
+addValetCharge
+-------------------------
+1. Recieves: Variable currentOrder of type <order>
+2. Increment the visit number (currentOrder::valet::visitNum += 1)
+3. What is the visit number?
+	Visit 1: What is the show time? (currentOrder::feature::time == ?)
+			Matin: a. Prompt user to choose Standard or VIP (currentOrder::valet::valetType = userInput)
+			       		1. Standard: Update valet charge (currentOrder::valetCharge = matinStdPrice)
+			       		2. VIP: Update valet charge (currentOrder::valetCharge = matinVipPrice)
+
+			Evening: a. Prompt user to choose Standard or VIP (currentOrder::valet::valetType = userInput)
+				 	1. Standard: Update valet charge (currentOrder::valetCharge = eveStdPrice)
+				 	2. VIP: Update valet charge (currentOrder::valetCharge = eveVipPrice)
+
+	Visit 2: a. Prompt the user if they want to tip (Update currentOrder::valet::isTip)
+		 b. Are they tipping? (Is currentOrder::valet::isTip == true?)
+			Yes: 1. Prompt user to enter tip amount
+			     2. Store tip amount (currentOrder::valet::tipAmount = userInput)
+			    
+4. Return currentOrder
+5. End	

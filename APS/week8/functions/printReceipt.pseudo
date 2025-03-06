@@ -1,0 +1,50 @@
+printReceipt
+-------------------------
+1. Recieves: Variable currentOrder of type <order>
+2. Create variable subTotal, tax and total
+3. Display order number( Display: Order #: currentOrder::orderId)
+4. Display Date ( Display: Date: currentOrder::feature::date)
+5. Display cover charges (Display: Cover Charges)
+	Is there a child in the group? (currentOrder::charge::numChild > 0)
+		Yes: Display: Children (currentOrder::charge::numChild @ currentOrder::charge::childPrice)    currentOrder::charge::numChild * currentOrder::charge::childPrice
+
+	Is there an adult in the group? (currentOrder::charge::numAdult > 0)
+		Yes: Display: Adults (currentOrder::charge::numAdult @ currentOrder::charge::adultPrice)    currentOrder::charge::numAdult * currentOrder::charge::adultPrice
+
+	Is there a senior in the group? (currentOrder::charge::numSenior > 0)
+		Yes: Display: Seniors (currentOrder::charge::numSenior @ currentOrder::charge::seniorPrice)    currentOrder::charge::numSenior * currentOrder::charge::seniorPrice
+
+	Display  currentOrder::totalCoverCharge
+6. Display ticket charges(Display: Ticket Charges)
+	Display: currentOrder::feature::time currentOrder::feature::type (currentOrder::feature::numTickets @ currentOrder::feature::ticketPrice)  currentOrder::totalTicketCharge
+7. Is there a discount? (currentOrder::discountPercent > 0)
+	Yes: Display: Discount (currentOrder::feature::numTickets @ currentOrder::discountPercent)  currentOrder::discountAmount
+8. Display (currentOrder::totalTicketCharge - currentOrder::discountAmount)
+9. Did customer buy snacks? (currentOrder::snacks::purchaseSnacks == true)
+	Yes: Display Snack Charges
+	     Did the customer buy non-alcoholic beverages? (currentOrder::snacks::numNonAlcohol > 0)
+			Yes: Display Non Alc. Bev. (currentOrder::snacks::numNonAlcohol @ currentOrder::snacks::nonAlcoholPrice)  currentOrder::snacks::numNonAlcohol * currentOrder::snacks::nonAlcoholPrice
+
+	     Did the customer buy alcoholic beverages? (currentOrder::snacks::numAlcohol > 0)
+			Yes: Display Alcohol. Bev. (currentOrder::snacks::numAlcohol @ currentOrder::snacks::alcoholPrice)  currentOrder::snacks::numAlcohol * currentOrder::snacks::alcoholPrice
+
+	     Did the customer buy candy? (currentOrder::snacks::numCandy > 0)
+			Yes: Display Candy (currentOrder::snacks::numCandy @ currentOrder::snacks::candyPrice)  currentOrder::snacks::numCandy * currentOrder::snacks::candyPrice
+	     Display total snacks price (Display: currentOrder::totalSnackCharge)
+10. Did the customer use the valet? (currentOrder::valet::visitNum > 0)
+	Yes: Display Valet Charges
+	     Display currentOrder::feature::time - currentOrder::valet::valetType : currentOrder::valetCharge
+	     Did the user tip? (currentOrder::valet::isTip == true)
+			Yes: Display Tip : currentOrder::valet::tipAmount
+	     Display total valet charges (currentOrder::valetCharge + currentOrder::valet::tipAmount)
+11. Calculate Sub-Total (subTotal = currentOrder::totalCoverCharge + (currentOrder::totalTicketCharge - currentOrder::discountAmount) + currentOrder::totalSnackCharge +(currentOrder::valetCharge + currentOrder::valet::tipAmount
+12. Display Sub-Total ( Display: Sub-Total: subTotal)
+13. Calculate Tax ( tax = subTotal * (currentOrder::taxPercent / 100))
+14. Display Tax ( Display: Tax : tax)
+15. Display: tax + subtotal
+16. Display: Deposit: -currentOrder::depositAmount
+17. Calculate total (currentOrder::total = subtotal + tax - currentOrder::depositAmount)
+18. Display: Total : currentOrder::total
+19. Return currentOrder
+20. End
+
