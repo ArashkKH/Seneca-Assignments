@@ -11,7 +11,6 @@ struct Product{
 
 
 void main(){
-
     struct Product shir = {1,12.45,20,"Milk"};
     printf("id: %d\n" , shir.id);
     printf("price: %.2f\n" , shir.price);

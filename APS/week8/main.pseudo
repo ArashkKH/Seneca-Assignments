@@ -55,7 +55,7 @@ main
 1. Creates a variable currentOrder of type <order>
 2. Display "Choose your tickets"
 3. Calls addFeature ( currentOrder = addFeature(currentOrder) )
-4. Did the deposit get paid? (Call paymentGateway(currentOrder::depositAmount)
+4. Did the deposit get paid? (Call paymentGateway(currentOrder::depositAmount))
 	No: Repeat step 4
 5. Call createQR ( currentOrder::qrCode = createQR(currentOrder::orderId))
 6. Is the event over yet?
