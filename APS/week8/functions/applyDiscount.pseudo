@@ -1,0 +1,37 @@
+Discounts
+
+<Snack Charges>
+	numNonAlcohol
+	numAlcohol
+	numCandy
+	nonAlcoholPrice
+	alchoholPrice
+	candyPrice
+
+
+applyDiscount(numPeople, ticketPrice)
+{
+	int discountPercent
+	float discountedPrice
+	
+	if numPeople == 2 {
+		discountPercent = 5
+	}
+	if numPeople == 3 {
+		discountPercent = 15
+	}
+	if numPeople == 4 {
+		discountPercent = 25
+	}
+	if numPeople >= 5 {
+		discountPercent = 30
+	}
+	
+	discountedPrice = ticketPrice - (ticketPrice/discountPercent)
+	return discountedPrice
+	
+}
+
+
+
+

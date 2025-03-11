@@ -1,0 +1,21 @@
+// ####################################
+//  Data Structures
+// ####################################
+// <CoverCharge>
+// 	numChild = 0
+// 	numAdult = 0
+// 	numSenior = 0
+// 	childPrice = 0.75
+// 	adultPrice = 4.00
+// 	seniorPrice = 1.50
+// </CoverCharge>
+// all prices in dollar
+
+AddCoverage
+---------------------
+1.  Receives: PeopleCategory (child or adult or senior)
+2.  Receives: QuantityOfPeople
+
+3.  add the quantity of reserving people to the related type 
+        (CoverCharge::[QuantityOfPeople] += QuantityOfPeople)
+END
