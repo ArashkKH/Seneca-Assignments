@@ -1,0 +1,142 @@
+
+/ -------------------------------------------------------------------------- /
+/                               DATA STRUCTURES                              /
+/ -------------------------------------------------------------------------- /
+<memberInfo>
+    - id
+    - isMember
+    - planType
+    - washesRemaining
+
+<orderInfo>
+    - washType
+    - washPrice
+
+<prices>
+    basicPrice = 5.60
+    cleanPrice = 8.85
+    superCleanPrice = 14.75
+
+/ -------------------------------------------------------------------------- /
+/                                CLOSED BOXES                                /
+/ -------------------------------------------------------------------------- /
+MakePayment(<paymentMethod>)
+-receives payment method (tap, swipe, PIN, etc. NO CASH)
+-returns SUCCESS or FAILURE
+
+GetCustomerRecord(<barcode>)
+-receives barcode/uid (does barcode/record exist?)
+-returns customer account data structure
+
+UpdateCustomerRecord(<customer data>)
+-recieves record data structure
+-returns SUCCESS or FAILURE
+
+/ ---------------------------------- MAIN ---------------------------------- /
+1. Declare:
+	override = false
+	currentOrder (type <memberInfo>)
+	currentMember (type <orderInfo>)
+2. Has the car wash been over-ridden? (override == true)
+	NO: a) Call Scanner function ( currentMember::planStatus = scanner(currentMember)
+	    b) Call kiosk function ( kiosk(currentOrder, currentMember) )	
+	    c) Call printReceipt function ( printReceipt(currentOrder, currentMember)
+	    d) Repeat from Step 2
+3. END
+
+
+/ -------------------------------------------------------------------------- /
+/                                 OPEN BOXES                                 /
+/ -------------------------------------------------------------------------- /
+
+/ --------------------------------- scanner -------------------------------- /
+1. DECLARE: 
+validMember = FALSE
+
+2. Is there a car?
+	NO: repeat from step 2
+3. Is there a barcode?
+	YES: a) Send barcode information (call GetCustomerRecord() )
+			Is their membership status active? (memberInfo::planStatus = active/true)
+		 b) Is there a valid record?
+			YES: Set validMember to TRUE
+4. RETURN validMember
+5. END
+
+/ ---------------------------------- kiosk --------------------------------- /
+1. Receives currentOrder and currentMember
+2. Declares 
+3. Is the customer a valid member? (currentMember::id exists and currentMember::planStatus == true)
+	Yes: Does the customer have enough daily washes remaining? (currentMember::washRemaining != 0)
+		Yes: a. Display: "Do you want to proceed with your plan wash?"
+		     b. Store user input
+		     c. Did the customer over-ride the wash? 
+				Yes: CALL processRegular()
+				No: CALL processMember()
+		No: CALL processRegular()
+	No: CALL processRegular()
+
+/ ----------------------------- processRegular ----------------------------- /
+1. Receives currentOrder and currentMember
+2. Declares
+3. Display: "Basic - $5.60, Clean - $8.85, Super Clean - $14.75"
+3. Prompt the user to choose their wash type 
+4. Store user input (currentOrder::washType = userInput)
+5. What did the user choose?
+	Basic: currentOrder::washPrice = prices::basicPrice
+	Clean: currentOrder::washPrice = prices::cleanPrice
+	Super Clean: currentOrder::washPrice = prices::superCleanPrice
+6. CALL payment ( paymentPhase(currentOrder) )
+7. Prompt user to enter car wash (Display: "Enter car wash")
+8. END
+
+/ ------------------------------ processMember ----------------------------- /
+1. Receives currentOrder and currentMember
+2. Set the wash type ( currentOrder::washType = currentMember::planType and currentOrder::washPrice = 0)
+3. Update the daily washes ( currentMember::washRemaining -= 1 )
+4. Call UpdateCustomerRecord(currentMember) 
+5. Prompt user to enter car wash (Display: "Enter car wash")
+6. END
+
+
+/ --------------------------------- PAYMENT -------------------------------- /
+PaymentPhase()
+1.  Recieve currentOrder
+2.  Declare 
+        PaymentMethod
+        isPaymentDone = false
+        PaymentTries = 5
+        wantsToRetry
+3.  Display"you have selected ${currentOrder::washType}
+            Price: ${currentOrder::washPrice}
+            Please tap your Card"
+
+4.  Activate Card scanner Module (NFC)
+5.  HAS the customer Tapped their card?
+        NO: A)  wait for them to scan (Repeat from step 4)
+6.  What was the card type? (Check from the card number pattern)
+        AmericanExpress: set PaymentMethod to AmericanExpress
+        MasterCard: set PaymentMethod to MasterCard
+        VisaCard: set PaymentMethod to VisaCard
+        
+7.  Does the user have attempts to make a payment? PaymentTries != 0
+8.  CALL MakePayment(PaymentMethod , currentOrder::washPrice)
+9.  set isPaymentDone to the result of the MakePayment() function
+10. was the payment successful (isPaymentDone == true)?
+    NO: A)  Display "Payment Failed
+                    Do you want to retry?" 
+        B)  Display "Yes" and "No" buttons
+        C)  has the user selected their choice?
+                NO: 1.Wait for them to input (Repeat from Step C)
+        D)  Set wantsToRetry to userInput (true or false)
+        E)  does the user want to retry? (wantsToRetry == true)?
+                YES:    1.  decrement PaymentTries by 1
+                        2.  retry payment (Repeat from step 7)    
+11. return isPaymentDone               
+
+
+/ -------------------------------- GreetUser ------------------------------- /
+
+/ -------------------------------------------------------------------------- /
+/                                    MAIN                                    /
+/ -------------------------------------------------------------------------- /
