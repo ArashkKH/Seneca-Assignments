@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/Users/arash/Documents/GitHub/Seneca-Assignments/IPC/week 9/exercise",
-      "program": "d:/Users/arash/Documents/GitHub/Seneca-Assignments/IPC/week 9/exercise/build/Debug/outDebug",
+      "cwd": "d:/Users/arash/Documents/GitHub/Seneca-Assignments/CPR/week 10/whiteBox",
+      "program": "d:/Users/arash/Documents/GitHub/Seneca-Assignments/CPR/week 10/whiteBox/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
