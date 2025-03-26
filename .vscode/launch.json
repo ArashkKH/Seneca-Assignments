@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/Users/arash/Documents/GitHub/Seneca-Assignments/CPR/week 10/whiteBox",
-      "program": "d:/Users/arash/Documents/GitHub/Seneca-Assignments/CPR/week 10/whiteBox/build/Debug/outDebug",
+      "cwd": "c:/Users/arash/OneDrive/Documents/GitHub/Seneca-Assignments/IPC/week 11/openFiles",
+      "program": "c:/Users/arash/OneDrive/Documents/GitHub/Seneca-Assignments/IPC/week 11/openFiles/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
