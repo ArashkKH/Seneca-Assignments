@@ -1,0 +1,37 @@
+1.all sh 
+grep -e "sh$" /etc/passwd
+
+#switch e best practice
+
+
+2.all user ID are 0
+grep -e "^\w\+:\w\?:0" /etc/passwd =======
+with awk:
+awk -F: -e '$3 == 0 { print $0 }' /etc/passwd
+
+
+3.principle command
+grep -e "^PS1=" ~/.profile     #switch eeeeeee =====
+
+4.user name of uid -ge 100
+awk -F: '$3>=100 {print $1}' /etc/passwd
+
+5.Write the simplest awk expression that will return the entire record of all the users whose UID is less than or equal to 100.
+awk -F: -e ' $3<=100 { print $0 }' /etc/passwd
+
+
+6.uppercase silly
+sed -e "s/[aeiouy]/\U&/g" /tmp/silly   # & is whole match.
+sed -e "s/\([aeiouy]\)/\U\1/g" /tmp/silly
+
+7.sed changing stuff
+
+1,10s/:/\!/g    #!/ woudl mean somth
+
+/sbin/Id
+
+s/nologin/false/    #no g we want it once
+
+8.Write the simplest expression that will return the contents of the file /tmp/silly, with all the vowels (including y) capitalized, when the arguments to perform this action are in the file /tmp/process.silly
+sed -f /tmp/process.silly /tmp/silly ====
+
