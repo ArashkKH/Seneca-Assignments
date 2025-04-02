@@ -60,7 +60,8 @@
     "*.ascx": "html",
     "stdio.h": "c",
     "headers.h": "c",
-    "functions.h": "c"
+    "functions.h": "c",
+    "converting.h": "c"
   },
   "C_Cpp.errorSquiggles": "disabled"
 }
