@@ -2,7 +2,6 @@
 
 
 int main(){
-
     FILE *testFile = NULL;
 
     testFile = fopen("../test.txt" , "w");
@@ -12,6 +11,4 @@ int main(){
     }else{
         printf("that didnt work");
     }
-
-
 }

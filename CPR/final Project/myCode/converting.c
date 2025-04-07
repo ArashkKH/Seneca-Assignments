@@ -1,27 +1,47 @@
-// CONVERTING MODULE SOURCE
-#define _CRT_SECURE_NO_WARNINGS
+//Converting Module Source
 #define BUFFER_SIZE 80
+#define _CRT_SECURE_NO_WARNINGS
 #include "converting.h"
 
-// V1
+
 void converting(void) {
-    char intString[BUFFER_SIZE]; // Buffer for storing user input
-    int intNumber; // Variable to store the result after conversion
+    /* Version 1 */
 
-    // Input loop: Continues to prompt the user for input until 'q' is entered
-    do {
+    // start Point
+    printf("*** Start of Converting Strings to int Demo ***\n");
+
+    //======================== Vars =======================/
+    char instString[BUFFER_SIZE];
+    int intNumber;
+    //======================== Vars =======================/
+
+    do{
+        // giving instructions to user
         printf("Type an int numeric string (q - to quit):\n");
-        fgets(intString, BUFFER_SIZE, stdin); // Get input from the user
-        intString[strlen(intString) - 1] = '\0'; // Remove newline character from the end of the input
+        // loading user input strigs in the buffer
+        fgets(instString , BUFFER_SIZE , stdin);
+        // adding null terminal to the string
+        instString[strlen(instString) - 1] =  '\0';
 
-        // Process input if it is not 'q'
-        if (strcmp(intString, "q") != 0) {
-            intNumber = atoi(intString); // Convert string to integer
-            printf("Converted number is %d\n", intNumber); // Display the result
+        // seeing if user wants to quit the program or not
+        if (strcmp(instString, "q") != 0){
+            // if they dont quit
+
+            // parsing the entered string to an integer
+            intNumber = atoi(instString);
+
+            // printing the result
+            printf("Converted Number is %d\n" , intNumber);
         }
+        // do above atleat once until the user decides to quit the program
+    }while (strcmp(instString, "q") != 0);
+    // end point
+    printf("*** End of Converting Strings to int Demo ***\n\n");
 
-    } while (strcmp(intString, "q") != 0); // Continue until user types 'q'
+    /* Version 2 */
 
-    // End message
-    printf("*** End of Converting Strings to int Demo ***\n");
+
+    /* Version 3 */
+
+
 }

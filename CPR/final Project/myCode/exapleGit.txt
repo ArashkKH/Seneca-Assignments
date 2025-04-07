@@ -1,0 +1,135 @@
+
+arash@CptBoxHead-Note MINGW64 /d/Users/arash/Documents/GitHub/Seneca-Assignments/CPR/final Project/myCode (main)
+$ git init
+Initialized empty Git repository in D:/Users/arash/Documents/GitHub/Seneca-Assignments/CPR/final Project/myCode/.git/
+
+arash@CptBoxHead-Note MINGW64 /d/Users/arash/Documents/GitHub/Seneca-Assignments/CPR/final Project/myCode (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        converting.c
+        converting.h
+        main.c
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+arash@CptBoxHead-Note MINGW64 /d/Users/arash/Documents/GitHub/Seneca-Assignments/CPR/final Project/myCode (master)
+$ git add ./
+converting.c  converting.h  main.c
+
+arash@CptBoxHead-Note MINGW64 /d/Users/arash/Documents/GitHub/Seneca-Assignments/CPR/final Project/myCode (master)
+$ git add converting.c
+
+arash@CptBoxHead-Note MINGW64 /d/Users/arash/Documents/GitHub/Seneca-Assignments/CPR/final Project/myCode (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   converting.c
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        converting.h
+        main.c
+
+
+arash@CptBoxHead-Note MINGW64 /d/Users/arash/Documents/GitHub/Seneca-Assignments/CPR/final Project/myCode (master)
+$ git add converting.h
+
+arash@CptBoxHead-Note MINGW64 /d/Users/arash/Documents/GitHub/Seneca-Assignments/CPR/final Project/myCode (master)
+$ git add main.c
+
+arash@CptBoxHead-Note MINGW64 /d/Users/arash/Documents/GitHub/Seneca-Assignments/CPR/final Project/myCode (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   converting.c
+        new file:   converting.h
+        new file:   main.c
+
+
+arash@CptBoxHead-Note MINGW64 /d/Users/arash/Documents/GitHub/Seneca-Assignments/CPR/final Project/myCode (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   converting.c
+        new file:   converting.h
+        new file:   main.c
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   main.c
+
+
+arash@CptBoxHead-Note MINGW64 /d/Users/arash/Documents/GitHub/Seneca-Assignments/CPR/final Project/myCode (master)
+$ git add converting.c
+
+arash@CptBoxHead-Note MINGW64 /d/Users/arash/Documents/GitHub/Seneca-Assignments/CPR/final Project/myCode (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   converting.c
+        new file:   converting.h
+        new file:   main.c
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   main.c
+
+
+arash@CptBoxHead-Note MINGW64 /d/Users/arash/Documents/GitHub/Seneca-Assignments/CPR/final Project/myCode (master)
+$ git commit -m "test Version"
+[master (root-commit) 7e56695] test Version
+ 3 files changed, 62 insertions(+)
+ create mode 100644 converting.c
+ create mode 100644 converting.h
+ create mode 100644 main.c
+
+arash@CptBoxHead-Note MINGW64 /d/Users/arash/Documents/GitHub/Seneca-Assignments/CPR/final Project/myCode (master)
+$ git log
+commit 7e56695ccb72ea68700bbbda892c8c49eb1d54b3 (HEAD -> master)
+Author: Arash Kh <106018197+ArashkKH@users.noreply.github.com>
+Date:   Mon Apr 7 12:37:20 2025 -0400
+
+    test Version
+
+arash@CptBoxHead-Note MINGW64 /d/Users/arash/Documents/GitHub/Seneca-Assignments/CPR/final Project/myCode (master)
+$ git diff
+diff --git a/main.c b/main.c
+index 93b5294..1ecaf9f 100644
+--- a/main.c
++++ b/main.c
+@@ -1,6 +1,7 @@
+ #include "converting.h"
+
+ int main(){
++    // Runnig the Function
+     converting();
+
+     return 0;
+
+arash@CptBoxHead-Note MINGW64 /d/Users/arash/Documents/GitHub/Seneca-Assignments/CPR/final Project/myCode (master)
+$ git --no-pager log -p > testLog.txt
+
+arash@CptBoxHead-Note MINGW64 /d/Users/arash/Documents/GitHub/Seneca-Assignments/CPR/final Project/myCode (master)

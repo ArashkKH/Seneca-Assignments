@@ -1,0 +1,88 @@
+commit 7e56695ccb72ea68700bbbda892c8c49eb1d54b3
+Author: Arash Kh <106018197+ArashkKH@users.noreply.github.com>
+Date:   Mon Apr 7 12:37:20 2025 -0400
+
+    test Version
+
+diff --git a/converting.c b/converting.c
+new file mode 100644
+index 0000000..d1a0d55
+--- /dev/null
++++ b/converting.c
+@@ -0,0 +1,47 @@
++//Converting Module Source
++#define BUFFER_SIZE 80
++#define _CRT_SECURE_NO_WARNINGS
++#include "converting.h"
++
++
++void converting(void) {
++    /* Version 1 */
++
++    // start Point
++    printf("*** Start of Converting Strings to int Demo ***\n");
++
++    //======================== Vars =======================/
++    char instString[BUFFER_SIZE];
++    int intNumber;
++    //======================== Vars =======================/
++
++    do{
++        // giving instructions to user
++        printf("Type an int numeric string (q - to quit):\n");
++        // loading user input strigs in the buffer
++        fgets(instString , BUFFER_SIZE , stdin);
++        // adding null terminal to the string
++        instString[strlen(instString) - 1] =  '\0';
++
++        // seeing if user wants to quit the program or not
++        if (strcmp(instString, "q") != 0){
++            // if they dont quit
++
++            // parsing the entered string to an integer
++            intNumber = atoi(instString);
++
++            // printing the result
++            printf("Converted Number is %d\n" , intNumber);
++        }
++        // do above atleat once until the user decides to quit the program
++    }while (strcmp(instString, "q") != 0);
++    // end point
++    printf("*** End of Converting Strings to int Demo ***\n\n");
++
++    /* Version 2 */
++
++
++    /* Version 3 */
++
++
++}
+diff --git a/converting.h b/converting.h
+new file mode 100644
+index 0000000..6867a1e
+--- /dev/null
++++ b/converting.h
+@@ -0,0 +1,8 @@
++// Converting Module Header
++#ifndef _CONVERTING_H_
++#define _CONVERTING_H_
++#include <stdio.h>
++#include <string.h>
++#include <stdlib.h>
++void converting(void);
++#endif
+\ No newline at end of file
+diff --git a/main.c b/main.c
+new file mode 100644
+index 0000000..93b5294
+--- /dev/null
++++ b/main.c
+@@ -0,0 +1,7 @@
++#include "converting.h"
++
++int main(){
++    converting();
++
++    return 0;
++}
+\ No newline at end of file
